@@ -16,8 +16,10 @@
 <body>
     <h1></h1>
     <!--Bootstrap sample-->
+    <div class="alertContainer"></div>
     <div class="container">
-        <h1>Task List</h1>
+        
+        <h1 class="text-center">Task List</h1>
         <div class="row">
             <div class="col">
                 <form id="taskForm">
@@ -32,118 +34,43 @@
                     <div class="mb-3 form-group">
                         <label for="formGroupExampleInput" class="form-label">Assign To </label>
                         <input id="taskAssignToInput" type="text" class="form-control" id="formGroupExampleInput" placeholder="">
-                        <p>
-                            <label for="formGroupExampleInput" class="form-label">Due Date</label>
-                            <input type="date" id="dateInput">
-                        </p>
-                        <div class="mb-3 form-group">
-                            <label for="formGroupExampleInput" class="form-label">Status </label>
-                            <select id="myList" onchange="status()">
-                                <option> ---Choose Status--- </option>  
-                                <option> Inprogress </option>  
-                                <option> Not started </option>  
-                                <option> Todo </option>  
-                                <option> Complete </option>  
-                                <option> Onhold </option>  
-                            </select>
+                        <div id="selected-input-group" class="d-flex justify-content-center">
+                            <div class="col-7">
+                                <div class="row">
+                                    <label for="formGroupExampleInput" class="form-label">Due Date</label>
+                                    <input type="date" id="dateInput">
+                                </div>
+                                <div class="mb-3 form-group row">
+                                    <label for="formGroupExampleInput" class="form-label">Status </label>
+                                    <select id="statusDropdown" onchange="status()">
+                                        <option> In progress </option>  
+                                        <option> Not started </option>  
+                                        <option> To Do </option>  
+                                        <option> On hold </option>  
+                                    </select>
+                                </div>
+                            <div class="row"> <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button></div>
+                        </div>
+                           
                         </div>
                     </div>
-                    <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+                    
                 </form>
                 <!--Card Layout-->
-                <h1>Tasks</h1>
-                <div id="taskList" class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">[Task 1]</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">[Sample Assigned To Person]</h6>
-                                <h6 class="card-subtitle mb-2 text-muted">[Sample Due Date]</h6>
-                                <p class="card-text">[Sample Description]</p>
-                                <span class="badge text-bg-primary">In progress</span>
-                                <div>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                    <button type="button" class="btn btn-success">Mark As Done</button>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">[Task 2]</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">[Sample Assigned To Person]</h6>
-                                <h6 class="card-subtitle mb-2 text-muted">[Sample Due Date]</h6>
-                                <p class="card-text">[Sample Description]</p>
-                                <span class="badge text-bg-primary">In progress</span>
-                                <div>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                    <button type="button" class="btn btn-success">Mark As Done</button>
-                                </div>
-                            </div>
-                        </div>
+                <h1 class="text-center">Tasks</h1>
+                    <div class="alertContainer">
+                        <div id="taskList" class="list-group">
+                    </div>
                 </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">[Task 3]</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">[Sample Assigned To Person]</h6>
-                            <h6 class="card-subtitle mb-2 text-muted">[Sample Due Date]</h6>
-                            <p class="card-text">[Sample Description]</p>
-                            <span class="badge text-bg-primary">In progress</span>
-                            <div>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                                <button type="button" class="btn btn-success">Mark As Done</button>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">[Task 4]</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">[Sample Assigned To Person]</h6>
-                            <h6 class="card-subtitle mb-2 text-muted">[Sample Due Date]</h6>
-                            <p class="card-text">[Sample Description]</p>
-                            <span class="badge text-bg-primary">In progress</span>
-
-                            <div>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                                <button type="button" class="btn btn-success">Mark As Done</button>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">[Task 5]</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">[Sample Assigned To Person]</h6>
-                            <h6 class="card-subtitle mb-2 text-muted">[Sample Due Date]</h6>
-                            <p class="card-text">[Sample Description]</p>
-                            <span class="badge text-bg-primary">In progress</span>
-                            <div>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                                <button type="button" class="btn btn-success">Mark As Done</button>
-                            </div>
-                        </div>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
     </div>
 
-    //Add js link
-
     <script src="js/index.js"></script>
     <script src="js/taskManager.js"></script>
 </body>
 
-
-
-< /html>
-    <!-- Bootstrap JavaScript Bundle with Popper -->
-    < script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-        </script>
+</html>
+<!-- Bootstrap JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
